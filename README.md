@@ -31,7 +31,7 @@
  pip3 install numpy
  pip3 install scipy
  ```
- To run the program, go to the folder where is the script "program_gimbals" and execute:
+ To run the program, go to the folder where is the script "program_gimbals.py" and execute:
  ```
  python3 program_gimbals.py
  ```
