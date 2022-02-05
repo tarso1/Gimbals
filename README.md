@@ -18,15 +18,19 @@
  ## Setup
  To run this project you need to execute the python script named "program_gimbals.py". For this you need to have installed Python 3.9 or more recent versions. To check your python version open a linux terminal or the cmd for Widows and type:
  ```
- $python3 -V
+ python3 -V
  ```
  To install pip:
- '''
+ ```
  sudo apt install pip3
- '''
+```
  And the libraries numpy, scipy, matplotlib:
- '''
- $pip3 install matplotlib
- $pip3 install numpy
- $pip3 install scipy
- '''
+ ```
+ pip3 install matplotlib
+ pip3 install numpy
+ pip3 install scipy
+ ```
+ To run the program, go to the folder where is the script "program_gimbals" and execute:
+ ```
+ python3 program_gimbals.py
+ ```
