@@ -39,12 +39,15 @@
  
  
 ![Data](./images/window.PNG)
-You can choose the parameters for each simulation and click run. You can make as many as you want. Just a disclaimer, neither increase the sample time nor decrease the simulation time so much. If you do, the simulation can be harmed due to errors in the matrix exponentials it calculates. 
+
+
+You can choose the parameters for each simulation and click on run. You can make as many as you want. Just a disclaimer, neither increase the sample time nor decrease the simulation time so much. If you do, the simulation can be harmed due to errors in the matrix exponentials it calculates. 
 
 
 ![Gimbals system](./images/gimbal.PNG)
 
 
-You are going to see the gimbals movement. In this figure, the outer gimbal is in blue, the middle is in green and the inner is in red. For each run, the program will show the final quaternion and the Euler angles for the inner gimbal in the terminal. 
+The gimbals will rotate accordingly. In this figure, the outer gimbal is in blue, the middle is in green and the inner is in red. For each run, the program will show the final quaternion and the Euler angles for the inner gimbal in the terminal. 
+
 ## Data Recovery
-To retrieve all the quaternions calculated during the simulation, you can copy the data stored in the variable quat1. This variable is a matrix with five columns. In the first colum is the sample time of the simulation. The other four colums are the quaternion components according the convention 0123, where the first component is the real part and the other are the imaginary part. The Euler angles can be recoverd trhough the Euler321rad variable, witch contains the angles for roll, pitch and yaw in each column in radians.
+To retrieve all the quaternions calculated during the simulation, you can copy the data stored in the variable quat1. This variable is a matrix with five columns. In the first column is the sample time of the simulation. The other four columns are the quaternion components according to the convention 0123, where the first component is the real part and the others are the imaginary part. The Euler angles can be recovered through the Euler321rad variable, which contains the angles for roll, pitch, and yaw in each column in radians.
