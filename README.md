@@ -34,4 +34,4 @@
  ```
  python3 program_gimbals.py
  ```
-![Algorithm schema](./images/window.png)
+![Algorithm schema](./images/gimbal.PNG)
