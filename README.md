@@ -4,6 +4,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Data Recovery](#Data Recovery)
 
 ## General Info
  This program simulates rotation movements through a set of three gimbals connected, the inner, the middle, and the outer gimbal. Gimbals are like frames that can rotate independently. The inner gimbal may represent any object rotating in three dimensions, such as a car, a rocket, an airplane, a satellite, or even a hand. The composition of three independent rotations can reach any orientation in space. To achieve this, the program has been made using quaternions to represent the orientation and the quaternions kinematics to produce the movement. At the end of each simulation, the program shows the final quaternion, i.e., the orientation of the inner gimbal with respect to an inertial reference frame, as well the Euler angles associated using the convention Yaw, Pitch, and Roll. 
@@ -34,4 +35,10 @@
  ```
  python3 program_gimbals.py
  ```
-![Algorithm schema](./images/gimbal.PNG)
+ You are going to see the two figures:
+![Data](./images/window.PNG)
+You can choose the parameters for each simulation and click run. You can make as many as you want. Just a disclaimer, neither increase the sample time nor decrease the simulation time so much. If you do, the simulation can be harmed due to errors in the matrix exponentials it calculates. 
+![Gimbals system](./images/gimbal.PNG)
+You are going to see the gimbals movement. In this figure, the outer gimbal is in blue, the middle is in green and the inner is in red. For each run, the program will show the final quaternion and the Euler angles for the inner gimbal in the terminal. 
+## Data Recovery
+To retrieve all the quaternions calculated during the simulation, you can copy the data stored in the variable quat1. This variable is a matrix with five columns. In the first colum is the sample time of the simulation. The other four colums are the quaternion components according the convention 0123, where the first component is the real part and the other are the imaginary part. The Euler angles can be recoverd trhough the Euler321rad variable, witch contains the angles for roll, pitch and yaw in each column in radians.
