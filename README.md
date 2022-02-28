@@ -30,6 +30,7 @@
  pip3 install matplotlib=3.4.3
  pip3 install numpy
  pip3 install scipy
+ sudo apt-get install python3-tk 
  ```
  To run the program, go to the folder where is the script "program_gimbals.py" and execute:
  ```
