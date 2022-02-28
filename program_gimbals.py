@@ -155,7 +155,7 @@ def rotation(vector, q):
     return r[1:]
 
 def quaternion2Euler(q):
-    # 321 sequence
+    # 321 sequence Inertial to Body frame
     # q0,q1,q2,q3 convention
     
     euler = np.zeros((q.shape[0],3));
@@ -260,7 +260,10 @@ class gimbals:
 	    self.q3_ = np.block([np.cos(a3 / 2), n3 * np.sin(a3 / 2)])
 	    self.q2_ = np.block([np.cos(a2 / 2), n2 * np.sin(a2 / 2)])
 	    self.q1_ = np.block([np.cos(a1 / 2), n1 * np.sin(a1 / 2)])
-
+        
+        
+	    self.body_frame = 0.5*np.array([[1,0,0],[0,0,0],[0,1,0],[0,0,0],[0,0,1]]) 
+        
 	   
 	    self.fig = plt.figure()
 	    self.ax = self.fig.add_subplot(111, projection="3d")
@@ -284,9 +287,9 @@ class gimbals:
 	    connect_zy1_ = np.zeros((self.connect_zy.shape[0],self.connect_zy.shape[1],q1.shape[1]))
 	    connect_xy_ = np.zeros((self.connect_xy.shape[0],self.connect_xy.shape[1],q1.shape[1]))
 	    connect_xy1_ = np.zeros((self.connect_xy.shape[0],self.connect_xy.shape[1],q1.shape[1]))
+	    body_ = np.zeros((self.body_frame.shape[0],self.body_frame.shape[1],q1.shape[1]))
 
 	   
-	  
 	    arrow = np.array([0.7,0,0])
 
 	    for i in range(q1.shape[1]):
@@ -315,6 +318,11 @@ class gimbals:
 	            connect_xy1_[k, :, i] = rotation(self.connect_xy1[k, :], q2[:, i]).reshape(
 	                3,
 	            )
+	        for j in range(len(self.body_frame)):
+	            body_[j, :, i] = rotation(self.body_frame[j, :], q1[:, i]).reshape(
+	                3,
+	            )
+
 
 	    for i in range(q1.shape[1]):
 	        arrow_ = rotation(arrow,q1[:,i]).reshape(3,)
@@ -337,6 +345,7 @@ class gimbals:
 	        self.ax.set_xlim([-2,2])
 	        self.ax.set_ylim([-2,2])
 	        self.ax.set_zlim([-2,2])
+	        self.ax.plot(body_[:,0,i],body_[:,1,i],body_[:,2,i],'k')
 	       
 	    
 	        plt.pause(0.001)  # pause avec duree en secondes
