@@ -1,7 +1,7 @@
 # Gimbals
 
 ## Table of contents
-* [General info](#general-info)
+* [General infos](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Data Recovery](#data-recovery)
@@ -27,7 +27,7 @@
 ```
  And the libraries numpy, scipy, matplotlib:
  ```
- pip3 install matplotlib
+ pip3 install matplotlib=3.4.3
  pip3 install numpy
  pip3 install scipy
  ```
